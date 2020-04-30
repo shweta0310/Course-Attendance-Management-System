@@ -1,0 +1,45 @@
+<!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+          <h4 class="centered" style="text-decoration:underline">{{faculty_instance.fname}}</h4>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:dashboardFaculty' faculty_instance.fid %}">
+              <span style="font-size:18px">Dashboard</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:profileFacultyView' faculty_instance.fid %}">
+              <span style="font-size:18px">View Profile</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:profileFacultyEdit' faculty_instance.fid %}">
+              <span style="font-size:18px">Edit Profile</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:addCourse' faculty_instance.fid %}">
+              <span style="font-size:18px">Add Course</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:facultyCourseDelete' faculty_instance.fid %}">
+              <span style="font-size:18px">Delete Course</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:facultyDeleteAccount' user.get_username %}">
+              <span style="font-size:18px">Delete Account</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:logout' %}">
+              <span style="font-size:18px">Logout</span>
+              </a>
+          </li>
+        </ul>
+        </div>
+      </aside>
+    <!--sidebar end-->

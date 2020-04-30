@@ -1,0 +1,66 @@
+{% extends 'Course_Attendance/base.html' %}
+{% load static %}
+
+{% block title_content %}
+<title> Student Course-Remove </title>
+{% endblock %}
+
+{% block sidebar_content %}
+{% include 'Course_Attendance/sidebar_student.html' %}
+{% endblock %}
+
+{% block main_content %}
+<section id="main-content">
+        <section class="wrapper site-min-height">
+
+        <div class="row mt">
+          <div class="col-lg-12 mt">
+            <div class="row content-panel">
+                <div id="edit" >
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2 ">
+                        <h4 class="mb">Remove a Course from your courses</h4>
+                        <form class="form-horizontal" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Course ID</label>
+                                {% for field in form %}
+                                    <div class="col-lg-6">
+                                        {{ field }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            {% if message %}
+                                <div class="form-group">
+                                    <div class="col-lg-6">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                  <button class="btn btn-theme" type="submit">Remove</button>
+                                  <button class="btn btn-theme04" type="reset">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                      </div>
+                      <!-- /col-lg-8 -->
+                    </div>
+                    <!-- /row -->
+                  </div>
+                </div>
+                <!-- /tab-content -->
+            </div>
+            <!-- /col-lg-12 -->
+          </div>
+          <!-- /row -->
+
+        <!-- /container -->
+        </section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'Course_Attendance/base.html' %}
+{% load static %}
+
+{% block title_content %}
+<title> Student Dashboard </title>
+{% endblock %}
+
+{% block sidebar_content %}
+{% include 'Course_Attendance/sidebar_student.html' %}
+{% endblock %}
+
+{% block main_content %}
+    <!--main content start-->
+    <section id="main-content">
+    {% if len_courses > 0 %}
+
+          <section class="wrapper">
+            <div class="row mt">
+              <div class="col-lg-12">
+                <!--  BASIC PROGRESS BARS -->
+                  <h3 align="center">DASHBOARD</h3>
+                <div class="showback1">
+                  <h3><i class="fa fa-angle-right"></i> Attendance Progress</h3>
+                  <hr>
+                    {% for key, value in percent_present.items %}
+                        {% if value >= 70.0 %}
+                            <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{value}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ value }}%">
+                            <span>{{key}} - {{value}}%</span>
+                            </div>
+                            </div>
+                        {% elif value >= 30.0 %}
+                            <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{value}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ value }}%">
+                            <span>{{key}} - {{value}}%</span>
+                            </div>
+                            </div>
+                        {% elif value > 0 %}
+                            <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{value}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ value }}%">
+                            <span>{{key}} - {{value}}%</span>
+                            </div>
+                            </div>
+                        {% else %}
+                            <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{value}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ value }}%">
+                            <span style="color:black">{{key}}</span>
+                            </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!--/showback1 -->
+              </div>
+              <!-- /col-lg-12 -->
+              </div>
+            <!--/ row -->
+          </section>
+          <!-- /wrapper -->
+
+    {% endif %}
+
+
+      <section class="wrapper site-min-height">
+        <h3><i class="fa fa-angle-right"></i> Recommended Courses For You</h3>
+        <hr>
+        <div class="row mt">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+            <div class="project-wrapper">
+              <div class="product-panel-2 pn">
+                  <br><br>
+                  <h4>COURSE NAME</h4>
+                  <h5>Course ID</h5>
+                  <h5>No. of classes</h5>
+                  <button class="btn btn-small btn-theme04">FULL REPORT</button>
+                </div>
+            </div>
+          </div>
+          <!-- col-lg-4 -->
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+            <div class="project-wrapper">
+              <div class="product-panel-2 pn">
+                  <br><br>
+                  <h4>COURSE NAME</h4>
+                  <h5>Course ID</h5>
+                  <h5>No. of classes</h5>
+                  <button class="btn btn-small btn-theme04">FULL REPORT</button>
+                </div>
+            </div>
+          </div>
+          <!-- col-lg-4 -->
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+            <div class="project-wrapper">
+              <div class="product-panel-2 pn">
+                  <br><br>
+                  <h4>COURSE NAME</h4>
+                  <h5>Course ID</h5>
+                  <h5>No. of classes</h5>
+                  <button class="btn btn-small btn-theme04">FULL REPORT</button>
+                </div>
+            </div>
+          </div>
+          <!-- col-lg-4 -->
+        </div>
+        <!-- /row -->
+      </section>
+      <!-- /wrapper -->
+
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+    </section>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!--header start-->
+    <header class="header black-bg">
+      <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+      </div>
+      <!--logo start-->
+      <a href="{% url 'Course_Attendance:index' %}"class="logo"><b>HOME</b></a>
+      <!--logo end-->
+        <div class="top-menu">
+          <ul class="nav pull-right top-menu">
+            <li><a class="logout" href="{% url 'Course_Attendance:loginFaculty' %}">Faculty</a></li>
+          </ul>
+        </div>
+        <div class="top-menu">
+          <ul class="nav pull-right top-menu">
+            <li><a class="logout" href="{% url 'Course_Attendance:loginStudent' %}">Student</a></li>
+          </ul>
+        </div>
+        <div class="top-menu">
+          <ul class="nav pull-right top-menu">
+            <li><a class="logout" href="{% url 'Course_Attendance:archive' %}">Course Archive</a></li>
+          </ul>
+        </div>
+
+    </header>
+    <!--header end-->

@@ -1,0 +1,60 @@
+{% extends 'Course_Attendance/base.html' %}
+{% load static %}
+
+{% block title_content %}
+<title>Student Registration</title>
+{% endblock %}
+
+{% block main_content %}
+<!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> Student Registration</h3>
+
+        <!-- FORM VALIDATION -->
+        <div class="row mt">
+          <div class="col-lg-12">
+            <div class="form-panel">
+              <div class=" form">
+                <form class="cmxform form-horizontal style-form" id="commentForm" method="post" >
+                    {% csrf_token %}
+                    {% for field in form %}
+                      <div class="form-group ">
+                        <label class="control-label col-lg-2">{{ field.label_tag }}</label>
+                        <div class="col-lg-10">
+                          {{ field }}
+
+                          {% if field.help_text %}
+                            <small style="color: black">{{ field.help_text }}</small>
+                          {% endif %}
+                          {% for error in field.errors %}
+                            <p>{{ error }}
+                          {% endfor %}
+                          </div>
+                      </div>
+                    {% endfor %}
+                  {% if error_message %}
+                    <br>
+                    <label class="control-label col-lg-2">{{ error_message }}</label>
+                  {% endif %}
+
+                  <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                      <button class="btn btn-theme" type="submit">Save</button>
+                      <button class="btn btn-theme04" type="reset">Reset</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- /form-panel -->
+          </div>
+          <!-- /col-lg-12 -->
+        </div>
+        <!-- /row -->
+      </section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+{% endblock %}

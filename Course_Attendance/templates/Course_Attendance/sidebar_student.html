@@ -1,0 +1,50 @@
+<!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+          <h4 class="centered" style="text-decoration:underline">{{student_instance.sname}}</h4>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:dashboardStudent' student_instance.sid %}">
+              <span style="font-size:18px">Dashboard</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:profileStudentView' student_instance.sid %}">
+              <span style="font-size:18px">View Profile</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:profileStudentEdit' student_instance.sid %}">
+              <span style="font-size:18px">Edit Profile</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:coursesStudent' student_instance.sid %}">
+              <span style="font-size:18px">My Courses</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:studentCourseRegister' student_instance.sid %}">
+              <span style="font-size:18px">Register for Course</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:studentCourseRemove' student_instance.sid %}">
+              <span style="font-size:18px">Remove Course</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:studentDeleteAccount' user.get_username %}">
+              <span style="font-size:18px">Delete Account</span>
+              </a>
+          </li>
+          <li class="mt">
+            <a href="{% url 'Course_Attendance:logout' %}">
+              <span style="font-size:18px">Logout</span>
+              </a>
+          </li>
+        </ul>
+        </div>
+      </aside>
+    <!--sidebar end-->

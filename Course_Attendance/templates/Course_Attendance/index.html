@@ -1,0 +1,59 @@
+{% extends 'Course_Attendance/base.html' %}
+{% load static %}
+
+{% block title_content %}
+<title> Home </title>
+{% endblock %}
+
+{% block main_content %}
+<!--main content start-->
+
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <h1 align="center"> COURSE ATTENDANCE MANAGEMENT SYSTEM</h1>
+            <hr><hr><hr>
+
+            <div class="row mt">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+                    <div class="project-wrapper">
+                      <div class="product-panel-2 pn">
+                          <br><br>
+                          <h2>Course Archive</h2>
+                          <h3>(List of all courses)</h3>
+                          <a class="btn btn-small btn-theme04" role="button" href="{% url 'Course_Attendance:archive' %}">VIEW</a>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- col-lg-4 -->
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+                    <div class="project-wrapper">
+                      <div class="product-panel-2 pn">
+                          <br><br>
+                          <h2>Student Portal</h2>
+                          <h3>(Login/Register as a Student)</h3>
+                          <a class="btn btn-small btn-theme04" role="button" href="{% url 'Course_Attendance:loginStudent' %}">GO</a>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- col-lg-4 -->
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+                    <div class="project-wrapper">
+                      <div class="product-panel-2 pn">
+                          <br><br>
+                          <h2>Faculty Portal</h2>
+                          <h3>(Login/Register as a Faculty)</h3>
+                          <a class="btn btn-small btn-theme04" role="button" href="{% url 'Course_Attendance:loginFaculty' %}">GO</a>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- col-lg-4 -->
+            </div>
+
+      </section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+{% endblock %}

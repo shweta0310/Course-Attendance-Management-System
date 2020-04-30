@@ -1,0 +1,43 @@
+{% extends 'Course_Attendance/base.html' %}
+{% load static %}
+
+{% block title_content %}
+<title> Faculty Dashboard </title>
+{% endblock %}
+
+{% block sidebar_content %}
+{% include 'Course_Attendance/sidebar_faculty.html' %}
+{% endblock %}
+
+{% block main_content %}
+<section id="main-content">
+      <section class="wrapper site-min-height">
+          <h2 align="center"><i class="fa"></i> Dashboard </h2>
+        <h3><i class="fa fa-angle-right"></i> Your Courses</h3>
+        <hr>
+          {% for key, value in course_rows.items %}
+            <div class="row mt">
+                {% for v in value %}
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+                    <div class="project-wrapper">
+                      <div class="product-panel-2 pn">
+                          <br><br>
+                          <h4>Course Name : {{ v.cname }}</h4>
+                          <h5>Course ID : {{ v.cid }}</h5>
+                          <h5>No. of classes : {{ v.no_of_classes }}</h5>
+                          <a href="{% url 'Course_Attendance:facultyCourseAttendanceDate' faculty_instance.fid v.cid %}" class="btn btn-small btn-theme04" role="button">VIEW ATTENDANCE</a><br><br>
+                          <a href="{% url 'Course_Attendance:facultyGiveAttendanceDate' faculty_instance.fid v.cid %}" class="btn btn-small btn-theme04" role="button">GIVE ATTENDANCE</a>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- col-lg-4 -->
+                {% endfor %}
+            </div>
+            <!-- /row -->
+          {% endfor %}
+      </section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+{% endblock %}

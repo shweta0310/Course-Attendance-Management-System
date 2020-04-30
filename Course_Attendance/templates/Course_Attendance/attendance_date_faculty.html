@@ -1,0 +1,55 @@
+{% extends 'Course_Attendance/base.html' %}
+{% load static %}
+
+{% block title_content %}
+<title> Faculty View Course Attendance </title>
+{% endblock %}
+
+{% block sidebar_content %}
+{% include 'Course_Attendance/sidebar_faculty.html' %}
+{% endblock %}
+
+{% block main_content %}
+  <section id="main-content">
+        <section class="wrapper site-min-height">
+        <div class="row mt">
+            <div class="bootstrap-iso">
+            <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <!-- Form code begins -->
+                    <h3 align="center"><i class="fa"></i> {{ title_message }} </h3>
+                    <h3 align="center"><i class="fa"></i> Course Name : {{ course_instance.cname }} </h3>
+                    <h3 align="center"><i class="fa"></i> Course ID : {{ course_instance.cid }} </h3>
+                    <hr>
+                    <form method="post">
+                      {% csrf_token %}
+                        <div class="form-group" align="center"> <!-- Date input -->
+                            <label class="control-label">Date  </label>
+                            {{ form.date_input }}
+                        </div>
+                      {% if error_message %}
+                      <div class="form-group" align="center">
+                        {{ error_message }}
+                      </div>
+                     {% endif %}
+                      <div class="form-group" align="center"> <!-- Submit button -->
+                         <button class="btn btn-theme" type="submit">Submit</button>
+                      </div>
+                    </form>
+                    <!-- Form code ends -->
+                    <form method="post"
+                              action="{% url 'Course_Attendance:dashboardFaculty' faculty_instance.fid %}">
+                        {% csrf_token %}
+                        <div class="form-group" align="center"> <!-- Submit button -->
+                            <button class="btn btn-theme" type="submit">Back</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </div>
+            </div>
+          </div>
+        </section>
+  </section>
+{% endblock %}
